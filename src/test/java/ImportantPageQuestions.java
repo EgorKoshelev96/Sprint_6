@@ -1,5 +1,9 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ImportantPageQuestions {
     private WebDriver driver;
@@ -44,67 +48,103 @@ public class ImportantPageQuestions {
         driver.findElement(list1Switch).click();
     }
 
-    public String setContents1List() {
-        return driver.findElement(contents1List).getText();
+    public void setContents1List(String expectedFirstText) {
+        String actualFirstText = driver.findElement(contents1List).getText().trim();
+        assertEquals(expectedFirstText, actualFirstText, "Текст не совпадает: " + "ожидалось " + expectedFirstText + ", " + "но получено " + actualFirstText);
     }
 
     public void clickContents2List() {
         driver.findElement(list2Switch).click();
     }
 
-    public String setContents2List() {
-        return driver.findElement(contents2List).getText();
+    public void setContents2List(String expectedSecondText) {
+        String actualSecondText = driver.findElement(contents2List).getText().trim();
+        assertEquals(expectedSecondText, actualSecondText, "Текст не совпадает: " + "ожидалось " + expectedSecondText + ", " + "но получено " + actualSecondText);
+
     }
 
     public void clickContents3List() {
         driver.findElement(list3Switch).click();
     }
 
-    public String setContents3List() {
-        return driver.findElement(contents3List).getText();
+    public void setContents3List(String expectedThreeText) {
+        String actualThreeText = driver.findElement(contents3List).getText().trim();
+        assertEquals(expectedThreeText,actualThreeText, "Текст не совпадает: " + "ожидалось " + expectedThreeText + ", " + "но получено " + actualThreeText);
+
     }
 
     public void clickContents4List() {
         driver.findElement(list4Switch).click();
     }
 
-    public String setContents4List(){
-        return driver.findElement(contents4List).getText();
+    public void setContents4List(String expectedFourText) {
+        String actualFourText = driver.findElement(contents4List).getText().trim();
+        assertEquals(expectedFourText,actualFourText, "Текст не совпадает: " + "ожидалось " + expectedFourText + ", " + "но получено " + actualFourText);
+
     }
 
     public void clickContents5List() {
         driver.findElement(list5Switch).click();
     }
 
-    public String setContents5List(){
-        return driver.findElement(contents5List).getText();
+    public void setContents5List(String expectedFifthText) {
+        String actualFifthText = driver.findElement(contents5List).getText().trim();
+        assertEquals(expectedFifthText,actualFifthText, "Текст не совпадает: " + "ожидалось " + expectedFifthText + ", " + "но получено " + actualFifthText);
+
     }
 
     public void clickContents6List() {
         driver.findElement(list6Switch).click();
     }
 
-    public String setContents6List(){
-        return driver.findElement(contents6List).getText();
+    public void setContents6List(String expectedSixthText) {
+        String actualSixthText = driver.findElement(contents6List).getText().trim();
+        assertEquals(expectedSixthText,actualSixthText, "Текст не совпадает: " + "ожидалось " + expectedSixthText + ", " + "но получено " + actualSixthText);
+
     }
 
     public void clickContents7List() {
         driver.findElement(list7Switch).click();
     }
 
-    public String setContents7List(){
-        return driver.findElement(contents7List).getText();
+    public void setContents7List(String expectedSevenText) {
+        String actualSevenText = driver.findElement(contents7List).getText().trim();
+        assertEquals(expectedSevenText,actualSevenText, "Текст не совпадает: " + "ожидалось " + expectedSevenText + ", " + "но получено " + actualSevenText);
+
     }
 
     public void clickContents8List() {
+        WebElement element = driver.findElement(By.id("accordion__heading-7"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         driver.findElement(list8Switch).click();
     }
 
-    public String setContents8List(){
-        return driver.findElement(contents8List).getText();
+    public void setContents8List(String expectedEightText) {
+        String actualEightText = driver.findElement(contents8List).getText().trim();
+        assertEquals(expectedEightText,actualEightText, "Текст не совпадает: " + "ожидалось " + expectedEightText + ", " + "но получено " + actualEightText);
+
     }
 
+    public void testImportantQuestions(String expectedFirstText,String expectedSecondText,String expectedThreeText,String expectedFourText,String expectedFifthText,String expectedSixthText,
+                                       String expectedSevenText,String expectedEightText){
 
+        clickContents1List();
+        setContents1List(expectedFirstText);
+        clickContents2List();
+        setContents2List(expectedSecondText);
+        clickContents3List();
+        setContents3List(expectedThreeText);
+        clickContents4List();
+        setContents4List(expectedFourText);
+        clickContents5List();
+        setContents5List(expectedFifthText);
+        clickContents6List();
+        setContents6List(expectedSixthText);
+        clickContents7List();
+        setContents7List(expectedSevenText);
+        clickContents8List();
+        setContents8List(expectedEightText);
+    }
 
 
 }
