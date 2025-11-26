@@ -1,7 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class OrderPageScooterTest {
@@ -54,15 +53,10 @@ public class OrderPageScooterTest {
     }
 
     public void setMetroStationField(String metro){
-
         driver.findElement(metroStationField).click();
         driver.findElement(metroStationField).sendKeys(metro);
         WebElement options = driver.findElement(By.xpath(".//div[text()='"+metro+"']"));
         options.click();
-
-
-
-
     }
 
     public void setPhoneNumberField(String phone) {
@@ -93,7 +87,6 @@ public class OrderPageScooterTest {
             }
             clickOrderButtonBottom();
         }
-
         setNameField(name);
         setSurnameField(surname);
         setAddressField(address);
@@ -101,10 +94,5 @@ public class OrderPageScooterTest {
         setPhoneNumberField(phone);
         setNextButton();
     }
-
-
-
-
-
 }
 

@@ -8,10 +8,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,9 +20,6 @@ public class OrderScooterTest {
     AboutPageRent objAboutPageRent = new AboutPageRent(driver);
     @BeforeEach
     public void setUp() {
-        // драйвер для браузера Chrome
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
         this.driver = new ChromeDriver();
         this.objOrderPageScooterTest  = new OrderPageScooterTest(driver);
         this.objAboutPageRent = new AboutPageRent(driver);
